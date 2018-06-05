@@ -35,8 +35,8 @@ pipeline:
       - lotteryjs.com
     port: 22
     username: root
+    secrets: [ ssh_password ]
     target: /root/drone/${DRONE_REPO}
-    secrets: [ssh_key]
     source:
       - "*.js"
       - node_modules
