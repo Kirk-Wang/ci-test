@@ -32,11 +32,12 @@ pipeline:
   scp:
     image: appleboy/drone-scp
     host:
-      - 120.79.129.171
+      - lotteryjs.com
     port: 22
     username: root
     target: /root/drone/${DRONE_REPO}
-    secrets: [ ssh_key ]
+    secrets: 
+      target: ssh_key
     source:
       - "*.js"
       - node_modules
