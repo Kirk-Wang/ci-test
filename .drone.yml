@@ -36,8 +36,7 @@ pipeline:
     port: 22
     username: root
     target: /root/drone/${DRONE_REPO}
-    secrets: 
-      target: ssh_key
+    secrets: [ssh_key]
     source:
       - "*.js"
       - node_modules
