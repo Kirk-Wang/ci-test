@@ -28,6 +28,20 @@ pipeline:
     group: testing
     commands:
       - yarn run lint
+
+  scp:
+    image: appleboy/drone-scp
+    host:
+      - lotteryjs.com
+    port: 22
+    username: root
+    target: /root/drone/${DRONE_REPO}
+    secrets: [ ssh_key ]
+    source:
+      - "*.js"
+      - node_modules
+    when:
+      branch: master
   
   rebuild-cache:
     image: drillster/drone-volume-cache
