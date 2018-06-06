@@ -54,7 +54,7 @@ pipeline:
     script:
       - rm -rf docker/${DRONE_REPO} && mkdir -p docker/${DRONE_REPO}
       - cp -r drone/${DRONE_REPO}/* docker/${DRONE_REPO}/
-      - cd docker/${DRONE_REPO} && docker build -t boy/node . && docker rm -f app && docker run -d --name app -p 8099:8080 boy/node
+      - cd docker/${DRONE_REPO} && docker build -t boy/node . && docker run -d --name app -p 8099:8080 boy/node
     when:
       branch: master
   
