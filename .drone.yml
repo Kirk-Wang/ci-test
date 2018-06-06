@@ -38,6 +38,7 @@ pipeline:
     target: /root/drone/${DRONE_REPO}
     source:
       - "*.js"
+      - process.json
       - node_modules
     when:
       branch: master
