@@ -4,7 +4,7 @@ const port = process.env.PORT || 8099;
 
 app.get("/", (req, res) => {
   res.send(
-    "<h1 style='text-align: center; font-size: 64px'>Crazy boy</h1>"
+    "<h1 style='text-align: center; font-size: 64px'>Crazy boy2</h1>"
   );
 });
 
