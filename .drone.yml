@@ -41,6 +41,22 @@ pipeline:
       - node_modules
     when:
       branch: master
+
+  ssh:
+    image: appleboy/drone-ssh
+    group: ssh
+    host:
+      - lotteryjs.com
+    port: 22
+    command_timeout: 120
+    secrets: [ ssh_username, ssh_key ]
+    script:
+      - . /root/.nvm/nvm.sh && nvm use 8.6.0
+      - rm -rf ${DRONE_REPO} && mkdir -p ${DRONE_REPO}
+      - cp -r drone/${DRONE_REPO}/* ${DRONE_REPO}/
+      - cd ${DRONE_REPO} && pm2 restart process.json
+    when:
+      branch: master
   
   rebuild-cache:
     image: drillster/drone-volume-cache
